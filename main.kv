@@ -1,0 +1,174 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<AnalysisControl@GridLayout>
+    cols: 3
+    orientation: "tb-lr"
+    size_hint_y: None
+    height: self.minimum_height
+    padding: "5dp"
+    spacing: "5dp"
+
+    MDIconButton:
+        icon: 'location-enter'
+        # halign: 'center'
+    MDLabel:
+        text: "Check-in"
+        font_size: "12dp"
+        # halign: 'center'
+
+    MDIconButton:
+        icon: 'location-exit'
+        # halign: 'center'
+    MDLabel:
+        text: "Check-out"
+        font_size: "12dp"
+        # halign: 'center'
+
+    MDIconButton:
+        icon: 'alarm'
+        # halign: 'center'
+    MDLabel:
+        text: "Notifications on"
+        font_size: "10dp"
+        # halign: 'center'
+
+<CheckAndTask@GridLayout>:
+    cols: 2
+    orientation: "lr-tb"
+    size_hint_y: None
+    height: self.minimum_height
+
+    MDCheckbox:
+        size_hint: None, None
+        size: "30dp", motivation_text.height
+        pos_hint: {'center_x': .5, 'center_y': .5}
+    MDLabel:
+        id: motivation_text
+        text: "This could be a motivation task. But be carefull."
+        font_size: "10dp"
+        size: self.texture_size
+
+<MovementAnalysisCard@MDCard+RoundedRectangularElevationBehavior>
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "5dp"
+    size_hint: None, None
+    size: "250dp",  self.minimum_height
+    pos_hint: {"center_x": .5, 'top': 1}
+    line_color: 0.2, 0.2, 0.2, 0.3
+
+    MDLabel:
+        text: "Movement Anaylsis"
+        theme_text_color: "Secondary"
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    MDSeparator:
+        height: "2dp"
+
+    MDLabel:
+        text: "You are actually [b]sitting[/b]."
+        size_hint_y: None
+        height: "20dp"
+        font_size: "12dp"
+        markup: True
+
+    AnalysisControl:
+
+<MotivationTaskCard@MDCard+RoundedRectangularElevationBehavior>
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "5dp"
+    size_hint: None, None
+    size: "250dp",  self.minimum_height
+    pos_hint: {"center_x": .5, 'top': 1}
+    line_color: 0.2, 0.2, 0.2, 0.3
+
+    MDLabel:
+        text: "Motivation Tasks"
+        theme_text_color: "Secondary"
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    MDSeparator:
+        height: "2dp"
+
+    CheckAndTask:
+    CheckAndTask:
+    CheckAndTask:
+    CheckAndTask:
+
+    MDRectangleFlatButton:
+        text: "Remind me"
+        pos_hint: {"center_x": .5}
+
+<SettingsCard@MDCard+RoundedRectangularElevationBehavior>
+    orientation: "vertical"
+    padding: "10dp"
+    spacing: "5dp"
+    size_hint: None, None
+    size: "250dp",  self.minimum_height
+    pos_hint: {"center_x": .5, 'top': 1}
+    line_color: 0.2, 0.2, 0.2, 0.3
+
+    MDLabel:
+        text: "Seetings"
+        theme_text_color: "Secondary"
+        size_hint_y: None
+        height: self.texture_size[1]
+
+    MDSeparator:
+        height: "2dp"
+
+    GridLayout:
+        cols: 2
+        orientation: "lr-tb"
+        size_hint_y: None
+        height: self.minimum_height
+        padding: "5dp"
+        spacing: "5dp"
+
+        MDLabel:
+            text: 'Name:'
+            font_size: "12dp"
+        MDTextField:
+            font_size: "12dp"
+
+        MDLabel:
+            text: 'Age:'
+            font_size: "12dp"
+        MDTextField:
+            font_size: "12dp"
+
+        MDLabel:
+            text: 'Weight [kg]:'
+            font_size: "12dp"
+        MDTextField:
+            font_size: "12dp"
+
+        MDLabel:
+            text: "Height [m]:"
+            font_size: "12dp"
+        MDTextField:
+            font_size: "12dp"
+
+        MDLabel:
+            text: "Job position:"
+            font_size: "12dp"
+        MDTextField:
+            font_size: "12dp"
+
+MDScreen:
+    ScrollView:
+        do_scroll_x: False
+        do_scroll_y: True
+        BoxLayout:
+            orientation: 'vertical'
+            padding: "10dp"
+            spacing: "15dp"
+            size_hint_y: None
+            height: self.minimum_height
+
+            MovementAnalysisCard:
+            MotivationTaskCard:
+            SettingsCard:
